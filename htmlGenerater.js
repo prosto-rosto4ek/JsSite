@@ -4,6 +4,13 @@ function createElementToEnd(typeElement, parent){//Добавляет элеме
 }
 function createElementToStart(typeElement, parent){//Добавляет элемент(первый параметр) в НАЧАЛО родительского(второго аргумента)
     createdEl=document.createElement(typeElement);
-    parent.appendChild(createdEl);
+    parent.prepend(createdEl);
 }
 
+
+function deleteAllChilds(parent){
+    parent.innerHTML='';
+}
+function deleteChild(element){
+    element.remove();
+}
