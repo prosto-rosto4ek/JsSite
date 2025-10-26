@@ -28,5 +28,5 @@ function removeCSSClass(elementID,className){//Удаление по айди(п
 
 function setContent(elementID,content){
     let element = document.getElementById(elementID);
-    element.content = content;
+    element.textContent = content;
 }
