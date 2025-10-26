@@ -1,16 +1,28 @@
-function createElementToEnd(typeElement, parent){//Добавляет элемент(первый параметр) в КОНЕЦ родительского(второго аргумента)
+function createElementToEnd(typeElement, parent,id=null){//Добавляет элемент(первый параметр) в КОНЕЦ родительского(второго аргумента)
     createdEl=document.createElement(typeElement);
     parent.appendChild(createdEl);
+       if(id){
+        createdEl.id=id;
+    }
+    return createdEl;
 }
-function createElementToStart(typeElement, parent){//Добавляет элемент(первый параметр) в НАЧАЛО родительского(второго аргумента)
+function createElementToStart(typeElement, parent,id=null){//Добавляет элемент(первый параметр) в НАЧАЛО родительского(второго аргумента)
     createdEl=document.createElement(typeElement);
     parent.prepend(createdEl);
+       if(id){
+        createdEl.id=id;
+    }
+    return createdEl;
+}
+function createElementToEndCSS(typeElement, parent,className){
+
 }
 
 
-function deleteAllChilds(parent){
-    parent.innerHTML='';
+function addCSSClass(element,className){
+    element.classList.add(className);
 }
-function deleteChild(element){
-    element.remove();
+function removeCSSClass(element,className){
+    element.classList.remove(className);
 }
+
