@@ -3,7 +3,7 @@ function createElementToEnd(typeElement, parent,id=null){//Добавляет э
     parent.appendChild(createdEl);
        if(id){
         createdEl.id=id;
-    }
+        }
     return createdEl;
 }
 function createElementToStart(typeElement, parent,id=null){//Добавляет элемент(первый параметр) в НАЧАЛО родительского(второго аргумента)
@@ -11,18 +11,17 @@ function createElementToStart(typeElement, parent,id=null){//Добавляет 
     parent.prepend(createdEl);
        if(id){
         createdEl.id=id;
-    }
+        }
     return createdEl;
 }
-function createElementToEndCSS(typeElement, parent,className){
-
-}
 
 
-function addCSSClass(element,className){
+function addCSSClass(elementID,className){//Добавление по айди(первый параметр) css-класса (второй параметр)
+    let element = document.getElementById(elementID);
     element.classList.add(className);
 }
-function removeCSSClass(element,className){
+function removeCSSClass(elementID,className){//Удаление по айди(первый параметр) css-класса (второй параметр)
+    let element = document.getElementById(elementID);
     element.classList.remove(className);
 }
 
