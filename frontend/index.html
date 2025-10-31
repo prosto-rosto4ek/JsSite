@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Пользователи И Задачи</title>
     <style>
     .chooseUserMenu {
         position: fixed;
@@ -58,6 +58,11 @@
     addCSSClass("chooseUserMenu", "users");
     createElementToStart("div", body, "todo");
     addCSSClass("menuTODO", "todo");
+
+    // Загружаем пользователей в меню при загрузке страницы
+        document.addEventListener('DOMContentLoaded', () => {
+            loadUsersToMenu('users');
+        });
   </script>
 </body>
 </html>
