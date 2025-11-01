@@ -55,6 +55,21 @@
       justify-content: space-between;
       align-items: center;
     }
+    .breadcrumbs {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      background-color: #e0e0e0;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      font-size: 18px;
+      font-weight: 500;
+      z-index: 2;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
     </style>
 </head>
 <body id="body">
@@ -62,18 +77,25 @@
     <script type="module">
     import {
       createElementToStart,
-      addCSSClass
+      addCSSClass,
+      createElementWithText
     } from '../backend/htmlGenerater.js';
 
     import { loadUsersToMenu } from '../backend/Users.js';
     import { loadTodosForUser } from '../backend/TODO.js';
 
     const body = document.getElementById("body");
+
     createElementToStart("div", body, "users");
     addCSSClass("chooseUserMenu", "users");
+
     createElementToStart("div", body, "todo");
     addCSSClass("menuTODO", "todo");
+
+    createElementWithText("div",body,"breadcrumbs",null,"breadcrumbs");
+
     loadUsersToMenu("users", "todo");
+
     function handleHashNavigation() {
       const hash = window.location.hash;
       const userId = parseInt(hash.replace("#", ""));
