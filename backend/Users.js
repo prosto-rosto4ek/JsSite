@@ -16,13 +16,15 @@ export class User {
     userElement.id = `user${this.id}`;
     userElement.dataset.userId = this.id;
 
+
     setEvent('click', () => {
-      window.location.hash = `#${this.id}`;
+      window.location.hash = `#userID:${this.id}`;
       const todoContainer = document.getElementById(containerForTODO);
       if (todoContainer) {
         todoContainer.innerHTML = "";
       }
       loadTodosForUser(this.id, containerForTODO);
+      renderBreadcrumbs(this.id, this.username);
     }, userElement);
   }
 }
