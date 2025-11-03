@@ -70,6 +70,14 @@
       z-index: 2;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
+    .breadcrumbItem {
+      margin-right: 2px;
+      cursor: pointer;
+      color: #0077cc;
+    }
+    .breadcrumbItem:hover {
+      text-decoration: underline;
+    }
     </style>
 </head>
 <body id="body">
@@ -83,6 +91,8 @@
 
     import { loadUsersToMenu } from '../backend/Users.js';
     import { loadTodosForUser } from '../backend/TODO.js';
+    import { renderBreadcrumbs } from '../backend/breadcrumbs.js';
+    import { handleHashNavigation } from '../backend/endpoint.js';
 
     const body = document.getElementById("body");
 
@@ -95,14 +105,6 @@
     createElementWithText("div",body,"breadcrumbs",null,"breadcrumbs");
 
     loadUsersToMenu("users", "todo");
-
-    function handleHashNavigation() {
-      const hash = window.location.hash;
-      const userId = parseInt(hash.replace("#", ""));
-      if (!isNaN(userId)) {
-        loadTodosForUser(userId, "todo");
-      }
-    }
 
     window.addEventListener("hashchange", handleHashNavigation);
     window.addEventListener("DOMContentLoaded", handleHashNavigation);
