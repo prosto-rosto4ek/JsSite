@@ -1,3 +1,5 @@
+//htmlGenerater.js
+
 export function createElementToEnd(typeElement, parent, id = null) {
   if (typeof parent === "string") {
     parent = document.getElementById(parent);

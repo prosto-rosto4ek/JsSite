@@ -1,9 +1,11 @@
+//Users.js
 import {
   createElementWithText,
   setEvent
 } from './htmlGenerater.js';
 
 import { loadTodosForUser } from './TODO.js';
+import { renderBreadcrumbs } from './breadcrumbs.js';
 
 export class User {
   constructor(data) {
@@ -16,14 +18,17 @@ export class User {
     userElement.id = `user${this.id}`;
     userElement.dataset.userId = this.id;
 
-
     setEvent('click', () => {
       window.location.hash = `#userID:${this.id}`;
+      window.currentUserId = this.id;
+      window.currentUsername = this.username;
+      window.currentView = null;
+
       const todoContainer = document.getElementById(containerForTODO);
       if (todoContainer) {
         todoContainer.innerHTML = "";
       }
-      loadTodosForUser(this.id, containerForTODO);
+
       renderBreadcrumbs(this.id, this.username);
     }, userElement);
   }
