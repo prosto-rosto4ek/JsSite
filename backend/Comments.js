@@ -27,7 +27,7 @@ export async function loadCommentsForPost(postId, containerId = "todo") {
 
     container.innerHTML = "";
 
-    createElementWithText("h2", container, null, "Комментарии к посту");
+    //createElementWithText("h2", container, null, "Комментарии к посту");
 
     comments.forEach(comment => {
       createComment(containerId, comment);
